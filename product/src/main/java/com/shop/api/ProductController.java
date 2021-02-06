@@ -20,8 +20,15 @@ public class ProductController {
     @GetMapping("/{productId}/fallback")
     public String getProductDetailWithFallback(@PathVariable String productId) {
         // 1. Hystrix의 Fallback 실행 여뷰는 Exception 발생 여뷰
-        throw new RuntimeException("I/O Error");
+        // throw new RuntimeException("I/O Error");
 
-        // return String.format("[product ID = %s at %s]", productId, System.currentTimeMillis());
+        // 2. Hystrix로 Timeout 처리
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            log.error(e.getMessage(), e);
+        }
+
+        return String.format("[product ID = %s at %s]", productId, System.currentTimeMillis());
     }
 }

@@ -4,3 +4,11 @@ server:
 spring:
   application:
     name: display
+
+hystrix:
+  command:
+    default: # command Key. use 'default' for global setting.
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000 # default : 1000
