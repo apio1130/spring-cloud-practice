@@ -20,8 +20,9 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @HystrixCommand(commandKey = "productInfo", fallbackMethod = "getProductInfoFallback")
     public String getProductInfo(String productId) {
-        // return restTemplate.getForObject(url + productId, String.class);
-        return restTemplate.getForObject(url + productId + "/fallback", String.class);
+        // Step-2 테스트
+        // return restTemplate.getForObject(url + productId + "/fallback", String.class);
+        return restTemplate.getForObject(url + productId, String.class);
     }
 
     public String getProductInfoFallback(String productId, Throwable t) {
