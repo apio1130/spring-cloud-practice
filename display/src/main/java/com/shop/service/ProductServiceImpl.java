@@ -13,7 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    private static final String url = "http://localhost:8086/products/";
+    // private static final String url = "http://localhost:8086/products/";
+    private static final String url = "http://product/products/";
 
     private final RestTemplate restTemplate;
 
