@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService {
     private final RestTemplate restTemplate;
 
     @Override
-    @HystrixCommand(fallbackMethod = "getProductInfoFallback")
+    @HystrixCommand(commandKey = "productInfo", fallbackMethod = "getProductInfoFallback")
     public String getProductInfo(String productId) {
         // return restTemplate.getForObject(url + productId, String.class);
         return restTemplate.getForObject(url + productId + "/fallback", String.class);
