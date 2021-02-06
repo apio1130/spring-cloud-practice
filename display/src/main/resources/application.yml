@@ -23,6 +23,14 @@ hystrix:
         circuitBreaker:
           requestVolumeThreshold: 1
           errorThresholdPercentage: 50
+    FeignProductRemoteService#getProductInfo(String):
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 500
+        circuitBreaker:
+          requestVolumeThreshold: 1
+          errorThresholdPercentage: 50
 
 product:
   ribbon:
