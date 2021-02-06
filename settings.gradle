@@ -1,3 +1,5 @@
 rootProject.name = 'spring-cloud-practice'
 include 'display'
 include 'product'
+include 'eureka-server'
+
