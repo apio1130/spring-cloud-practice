@@ -1,11 +1,11 @@
-package com.show;
+package com.shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DisplayApplication {
+public class ProductApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DisplayApplication.class);
+        SpringApplication.run(ProductApplication.class);
     }
 }
