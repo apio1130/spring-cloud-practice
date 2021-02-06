@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.shop.service.FeignProductRemoteService;
 import com.shop.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,8 @@ public class DisplayController {
 
     private final ProductService productService;
 
+    private final FeignProductRemoteService feignProductRemoteService;
+
     @GetMapping("/{displayId}")
     public String getDisplayDetail(@PathVariable String displayId) {
         String productInfo = getProductInfo();
@@ -23,6 +26,7 @@ public class DisplayController {
     }
 
     private String getProductInfo() {
-        return productService.getProductInfo("12345");
+        // return productService.getProductInfo("12345");
+        return feignProductRemoteService.getProductInfo("12345");
     }
 }
